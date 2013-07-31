@@ -1,0 +1,16 @@
+Package: HPGLSeq
+Type: Package
+Title: multi-comparisons Differential Expression Analysis for RNA-Seq
+Version: 0.1
+Date: 2013-05-13
+Author: Mohamed-Ramzi TEMANNI
+Maintainer: Mohamed-Ramzi TEMANNI <ramzi.temanni@gmail.com>
+Description: a pipeline for the automation of differencial expression analysis where we run several comparisons
+License: Artistic-2.0
+Depends: limma,
+    corpcor,
+    preprocessCore,
+    sva, 
+    CBCBseq
+Suggests: 
+Imports:
