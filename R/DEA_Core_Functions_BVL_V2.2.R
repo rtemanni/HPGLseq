@@ -30,7 +30,24 @@
 ## MA plot added using ggplot2
 ##################################################################################################
 
-
+#' Core Differential Expression analysis Function
+#'
+#'@param Design.file File with design matrix SampleID / Condition / Batch
+#'@param counts.dir Directory with counts per gene for each sample(one file per sample)
+#'@param DEComparison.file
+#'@param name.prefix
+#'@param OutputDir
+#'@param anot.file
+#'@param source.format
+#'@param SelFeature
+#'@param fields
+#'@param adjpval
+#'@param cleandescription
+#'@param correct.batch
+#'@param correct.batch.inmodel
+#'@param filter.lcg
+#'@return annotated DE genes results table
+#'@export
 
 DEAnalysis=function(Design.file,counts.dir,DEComparison.file,name.prefix,OutputDir,anot.file,source.format,SelFeature,fields,adjpval,cleandescription,correct.batch,correct.batch.inmodel,filter.lcg)
 {
@@ -272,9 +289,16 @@ DEAnalysis=function(Design.file,counts.dir,DEComparison.file,name.prefix,OutputD
 
 
 
-#######################################
-##### annotate table from GFF 
-#######################################
+#' Annotate Differentially expressed gene table 
+#'
+#'@param datTable DE results table 
+#'@param anot.file
+#'@param source.format
+#'@param SelFeature 
+#'@param fields
+#'@param cleandescription  
+#'@return annotated DE genes results table
+#'@export
 
 annotate.data = function (datTable, anot.file,source.format="gff",SelFeature="gene",fields=c("ID","Name","description"),cleandescription) 
 {
@@ -309,10 +333,17 @@ annotate.data = function (datTable, anot.file,source.format="gff",SelFeature="ge
 
 
 
-#######################################
-##### convert results from DE table to bed track for visualization in IGV 
-#######################################
 
+
+#' convert results from DE table to bed track for visualization in IGV  
+#'
+#'@param res DE results table 
+#'@param Cond1
+#'@param Cond2
+#'@param Design.file name of the design file 
+#'@param lfct log fold-change threshold 
+#'@return Bed file with DE genes results
+#'@export
 
 sv2bed=function(res,cond1,cond2,Design.file,lfct=1)
 {
@@ -338,7 +369,13 @@ sv2bed=function(res,cond1,cond2,Design.file,lfct=1)
 }
 
 
-
+#' Plot heatmap and 2D scatter plot of principal components 
+#'
+#'@param CountsTable count table 
+#'@param Design design ( sample id / Condition / Batch )
+#'@param name.prefix a name for the generated plot files 
+#'@return Heatmap plot file adn PCA plot file in png format
+#'@export
 
 
 ######
@@ -429,6 +466,7 @@ ascii2char=function(myanot,field)
 #' Adapted from http://sbamin.com/2012/11/05/tips-for-working-in-r-automatically-install-missing-package/
 #' 
 #' @param x package to be installed 
+#' 
 require.auto=function(x)
 {  
   if(isTRUE(x %in% .packages(all.available=TRUE))) {
