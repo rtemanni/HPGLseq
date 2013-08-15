@@ -1,0 +1,5 @@
+export(DEAnalysis)
+export(annotate.data)
+export(ascii2char)
+export(plot.cluster2)
+export(sv2bed)

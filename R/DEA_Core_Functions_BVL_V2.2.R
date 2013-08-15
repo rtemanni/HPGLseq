@@ -1,52 +1,22 @@
-
-#################################################################################
-#### : HPGL_Seq
-#################################################################################
-## DESCRIPTION: run DE Analysis 
-#################################################################################
-## INPUT: Design.file
-## INPUT: counts.dir
-## INPUT: DEComparison.file
-## PARAM: name.prefix
-## PARAM: OutputDir
-## INPUT: anot.file
-## PARAM: WriteCountTable=T/F (default = T)
-## PARAM: cleandescription=T/F (default= T) change ascii code in decrition to char (comon in gff/gtf from http://tritrypdb.org/)
-## PARAM: correct.batch=T/F (default = T) run batch correction
-## OUTPUT : HeatMap
-## OUTPUT : PCA
-## OUTPUT : DE List Annotated 
-## OUTPUT : All List Annotated
-## OUTPUT : BED Track with DE genes 
-
-##################################################################################################
-## date : 2013.05.23
-## Updates
-## date : 2013.06.26
-## use of cbcbSEQ that replaces DEbatch (no shifting in this version)
-## date : 2013.07.10
-## PCA plot now includes batch as shape and is using ggplot2
-## date : 2013.07.11
-## MA plot added using ggplot2
-##################################################################################################
-
 #' Core Differential Expression analysis Function
 #'
 #'@param Design.file File with design matrix SampleID / Condition / Batch
 #'@param counts.dir Directory with counts per gene for each sample(one file per sample)
-#'@param DEComparison.file
-#'@param name.prefix
-#'@param OutputDir
-#'@param anot.file
-#'@param source.format
+#'@param DEComparison.file File with pairwise comparisons to be performed
+#'@param name.prefix a name to be appended to generated files
+#'@param OutputDir output directory 
+#'@param anot.file annotation file full path 
+#'@param source.format annotation format G
 #'@param SelFeature
 #'@param fields
 #'@param adjpval
-#'@param cleandescription
+#'@param cleandescription T/F (default= T) change ascii code in decrition to char (comon in gff/gtf from http://tritrypdb.org/)
 #'@param correct.batch
 #'@param correct.batch.inmodel
-#'@param filter.lcg
+#'@param filter.lcg filter low count genes
+#'@return PCA/ HeatMap /Non Zero GEnes
 #'@return annotated DE genes results table
+#'@return BED Track with DE genes
 #'@export
 
 DEAnalysis=function(Design.file,counts.dir,DEComparison.file,name.prefix,OutputDir,anot.file,source.format,SelFeature,fields,adjpval,cleandescription,correct.batch,correct.batch.inmodel,filter.lcg)
