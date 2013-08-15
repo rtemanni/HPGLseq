@@ -18,7 +18,7 @@ Next, use [devtools](https://github.com/hadley/devtools) to install the latest
 version of HPGLseq and HPGLseq from Github:
 ```r
 require(devtools)
-install_github("HPGLseq", user="kokrah")
+install_github("cbcbSEQ", user="kokrah")
 install_github("HPGLseq", user="rtemanni")
 ```
 
