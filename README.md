@@ -1,4 +1,4 @@
-HPGLseq: multi-comparisons Differential Expression Analysis for RNA-Seq
+HPGLSeq: multi-comparisons Differential Expression Analysis for RNA-Seq
 ====================================================
 
 The purpose of this package is to facilitate the automation of multi-comparison differential expression analysis .
@@ -7,7 +7,7 @@ The purpose of this package is to facilitate the automation of multi-comparison 
 ## Installation
 
 To begin, install [Bioconductor](http://www.bioconductor.org/) along with a
-few dependencies that HPGLseq uses:
+few dependencies that HPGLSeq uses:
 
 ```r
 source("http://bioconductor.org/biocLite.R")
@@ -15,15 +15,15 @@ biocLite(c('limma', 'preprocessCore', 'sva'))
 ```
 
 Next, use [devtools](https://github.com/hadley/devtools) to install the latest
-version of HPGLseq and HPGLseq from Github:
+version of HPGLSeq and HPGLSeq from Github:
 ```r
 require(devtools)
 install_github("cbcbSEQ", user="kokrah")
-install_github("HPGLseq", user="rtemanni")
+install_github("HPGLSeq", user="rtemanni")
 ```
 
-If all went well you should now be able to load HPGLseq:
+If all went well you should now be able to load HPGLSeq:
 ```r
-require(HPGLseq)
-vignette('HPGLseqDemo', package='HPGLseq')
+require(HPGLSeq)
+vignette('HPGLSeqDemo', package='HPGLSeq')
 ```
